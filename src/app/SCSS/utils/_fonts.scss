@@ -1,0 +1,64 @@
+// Manrope
+
+/* manrope - 400 */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/app/fonts/Manrope/webfonts/Manrope-Regular.woff2") format("woff2");
+}
+/* manrope-500 */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  src: url("/app/fonts/Manrope/webfonts/Manrope-Medium.woff2") format("woff2");
+}
+/* manrope-600 */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/app/fonts/Manrope/webfonts/Manrope-SemiBold.woff2") format("woff2");
+}
+/* manrope-700 */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/app/fonts/Manrope/webfonts/Manrope-Bold.woff2") format("woff2");
+}
+
+/* manrope-800 */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 800;
+  src: url("/app/fonts/Manrope/webfonts/Manrope-ExtraBold.woff2") format("woff2");
+}
+
+// Gotchi Hand Font
+
+@font-face {
+  font-family: "Gochi Hand";
+  font-style: normal;
+  font-weight: 400;
+  // src: local("Gochi Hand Regular"),
+  //   url("/app/fonts/GotchiHand/GochiHand-Regular.woff") format("woff");
+  src: url("/app/fonts/Gotchi Hand/GochiHand-Regular.woff") format("woff");
+}
+
+// Syne Font
+
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 700;
+  src: url("/app/fonts/Syne/Syne-Bold.woff") format("woff");
+}
+
+// Font variable
+
+$font: "Manrope";
+$font-hand: "Gochi Hand";
+$font-logo: "Syne";

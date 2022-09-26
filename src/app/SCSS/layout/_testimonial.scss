@@ -1,0 +1,181 @@
+@use "../utils" as u;
+@use "../globals" as g;
+
+.testimonial {
+  width: min(100%, u.rem(1920));
+  padding: u.rem(64) u.rem(16);
+  @include u.flexbox(column, center, 0);
+  @include u.breakpoint(large) {
+    padding: u.rem(96) u.rem(32);
+    gap: u.rem(64);
+  }
+
+  &__wrapper {
+    width: min(100%, u.rem(1260));
+    @include u.flexbox(column, center, u.rem(48));
+
+    @include u.breakpoint(large) {
+      @include u.flexbox(row, center, u.rem(64));
+    }
+
+    &__main {
+      display: flex;
+      flex-direction: column;
+      flex: 50%;
+      gap: u.rem(32);
+
+      @include u.breakpoint(large) {
+        gap: u.rem(48);
+      }
+
+      &__rating {
+        width: u.rem(116);
+      }
+
+      &__content {
+        font-size: u.rem(30);
+        font-weight: 600;
+
+        &::selection {
+          background-color: black;
+          color: white;
+        }
+
+        @include u.breakpoint(medium) {
+          font-size: u.rem(36);
+        }
+      }
+
+      &__avatar {
+        display: flex;
+        flex-direction: column;
+        gap: u.rem(24);
+        @include u.breakpoint(medium) {
+          @include u.flexbox(row, space-between, 0);
+        }
+
+        &__div {
+          display: flex;
+          gap: u.rem(16);
+          @include u.breakpoint(medium) {
+            @include u.flexbox(row, center, u.rem(16));
+          }
+
+          &__img {
+            width: u.rem(56);
+            height: u.rem(56);
+            border-radius: 50%;
+            background-color: g.$base-white;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            &--01 {
+              background-image: url("/Assets/7.Testimonial/Clients/c-1.webp");
+            }
+
+            &--02 {
+              background-image: url("/Assets/7.Testimonial/Clients/c-2.webp");
+            }
+
+            &--03 {
+              background-image: url("/Assets/7.Testimonial/Clients/c-3.webp");
+            }
+          }
+
+          &__content {
+            @include u.flexbox(column, center, u.rem(4));
+            align-items: flex-start;
+
+            &__name {
+              font-weight: 600;
+              color: g.$gray-900;
+              font-size: u.rem(18);
+
+              &::selection {
+                background-color: black;
+                color: white;
+              }
+            }
+
+            &__position {
+              color: g.$gray-500;
+
+              &::selection {
+                background-color: black;
+                color: white;
+              }
+            }
+          }
+        }
+
+        &__divbutton {
+          display: flex;
+          gap: u.rem(16);
+
+          @include u.breakpoint(medium) {
+            gap: u.rem(32);
+          }
+
+          &__button {
+            width: u.rem(48);
+            height: u.rem(48);
+            border: 3px solid g.$gray-200;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background-color: g.$base-white;
+            transition: background-color ease-in-out 100ms;
+
+            &:hover {
+              background-color: g.$gray-50;
+            }
+
+            @include u.breakpoint(medium) {
+              width: u.rem(56);
+              height: u.rem(56);
+            }
+
+            img {
+              &::selection {
+                background-color: g.$warning-25;
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__imgdiv {
+      flex: 50%;
+      background-image: url("/Assets/7.Testimonial/images/t-02.webp");
+      background-size: cover;
+      background-position: 50% 10%;
+      background-repeat: no-repeat;
+      aspect-ratio: 343/240;
+      width: 100%;
+
+      @include u.breakpoint(medium) {
+        aspect-ratio: 652/394;
+      }
+
+      @include u.breakpoint(large) {
+        aspect-ratio: 576/592;
+      }
+
+      &--01 {
+        background-image: url("/Assets/7.Testimonial/images/t-01.webp");
+      }
+      &--02 {
+        background-image: url("/Assets/7.Testimonial/images/t-02.webp");
+        @include u.breakpoint(large) {
+          background-position: 70% 10%; //02
+        }
+      }
+      &--03 {
+        background-image: url("/Assets/7.Testimonial/images/t-03.webp");
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@use "colors" as c;
+@use "../utils" as u;
+// if you don't want to use nameface "u" then u can add "*" after as. But this will create problem of over ride as multiple scss can have same variable.
+
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+  font-weight: 400;
+  font-family: u.$font;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  background-color: c.$base-white;
+  display: grid;
+  place-items: center;
+}

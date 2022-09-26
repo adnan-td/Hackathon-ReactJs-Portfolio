@@ -1,0 +1,424 @@
+@use "../utils" as u;
+@use "../globals" as g;
+
+.body-content-wrapper {
+  display: grid;
+  place-items: center;
+}
+
+.home {
+  width: min(100%, u.rem(1920));
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+
+  .pink__circle {
+    background-color: g.$rose-500;
+    filter: blur(117px);
+    position: absolute;
+    z-index: -1;
+
+    &--01 {
+      width: u.rem(286);
+      height: u.rem(286);
+      top: -100px;
+      left: -100px;
+
+      opacity: 0.2;
+
+      @include u.breakpoint(large) {
+        width: u.rem(686);
+        height: u.rem(686);
+        top: -400px;
+        left: -400px;
+      }
+    }
+
+    &--02 {
+      width: u.rem(572);
+      height: u.rem(572);
+      right: -400px;
+      top: -400px;
+
+      opacity: 0.3;
+      @include u.breakpoint(large) {
+        width: u.rem(712);
+        height: u.rem(712);
+        right: -400px;
+        top: -400px;
+      }
+    }
+  }
+
+  .hero {
+    width: 100%;
+    padding: u.rem(64) 1rem 0;
+    @include u.flexbox(column, center, u.rem(80));
+    position: relative;
+
+    @include u.breakpoint(large) {
+      @include u.flexbox(column, center, u.rem(64));
+      padding: u.rem(96) 0 0 0;
+    }
+
+    .yellow__circle {
+      background-color: #fff173;
+      filter: blur(117px);
+      position: absolute;
+      z-index: -1;
+
+      &--01 {
+        width: 20rem;
+        height: 20rem;
+        bottom: u.rem(60);
+        left: u.rem(-100);
+
+        opacity: 0.7;
+
+        @include u.breakpoint(large) {
+          width: 20rem;
+          height: 20rem;
+          bottom: u.rem(379);
+          left: 17%;
+        }
+      }
+
+      &--02 {
+        width: 20rem;
+        height: 20rem;
+        right: 0px;
+        bottom: u.rem(9);
+        opacity: 0.6;
+
+        @include u.breakpoint(large) {
+          width: 20rem;
+          height: 20rem;
+          right: 0px;
+          bottom: u.rem(299);
+          opacity: 0.6;
+        }
+      }
+    }
+
+    &__content {
+      width: 100%;
+      @include u.flexbox(column, center, u.rem(32));
+
+      &__top {
+        @include u.flexbox(column, center, u.rem(16));
+        &__heading {
+          font-weight: 600;
+          font-size: u.rem(36);
+          max-width: 22ch;
+          text-align: center;
+
+          &::selection {
+            background-color: black;
+            color: white;
+          }
+
+          @include u.breakpoint(medium) {
+            font-size: u.rem(48);
+          }
+
+          @include u.breakpoint(large) {
+            font-size: u.rem(60);
+            max-width: u.rem(711);
+          }
+
+          &__span {
+            font-weight: 600;
+            position: relative;
+
+            &::selection {
+              background-color: black;
+              color: white;
+            }
+
+            &__underline {
+              position: absolute;
+              bottom: u.rem(2);
+              left: 0;
+              z-index: -1;
+              width: 100%;
+            }
+          }
+        }
+
+        &__para {
+          text-align: center;
+          font-size: u.rem(18);
+          color: g.$gray-500;
+          width: min(95%, u.rem(640));
+          line-height: u.rem(30);
+
+          &::selection {
+            background-color: black;
+            color: white;
+          }
+
+          @include u.breakpoint(large) {
+            font-size: u.rem(20);
+          }
+        }
+      }
+
+      &__bottom {
+        width: 100%;
+        @include u.flexbox(column, center, u.rem(12));
+
+        @include u.breakpoint(large) {
+          flex-direction: row;
+        }
+
+        &__links {
+          width: 100%;
+
+          &::selection {
+            background-color: black;
+            color: white;
+          }
+
+          @include u.breakpoint(large) {
+            width: max-content;
+          }
+          &__buttons {
+            width: 100%;
+            padding: u.rem(16);
+            @include u.flexbox(row, center, u.rem(8));
+            background-color: g.$base-white;
+            border: 2px solid g.$gray-300;
+            border-radius: u.rem(8);
+            cursor: pointer;
+            transition: background-color ease-in-out 200ms;
+
+            &:hover {
+              background-color: g.$gray-100;
+            }
+
+            @include u.breakpoint(large) {
+              padding: u.rem(16) u.rem(28);
+              gap: u.rem(12);
+            }
+
+            &--primary {
+              background-color: g.$base-black;
+              border: none;
+              letter-spacing: u.rem(1);
+
+              &:hover {
+                background-color: g.$gray-900;
+              }
+            }
+
+            &__text {
+              font-weight: 700;
+              font-size: u.rem(16);
+              color: g.$gray-700;
+              letter-spacing: u.rem(0.5);
+
+              &::selection {
+                background-color: black;
+                color: white;
+              }
+
+              @include u.breakpoint(large) {
+                font-size: u.rem(18);
+              }
+
+              &--primary {
+                color: g.$base-white;
+
+                &::selection {
+                  background-color: white;
+                  color: black;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__imgcon {
+      width: 100%;
+      height: auto;
+      background: #000;
+
+      @include u.breakpoint(large) {
+        width: min(80%, u.rem(1260));
+      }
+
+      &__div {
+        border: u.rem(6) solid #000000;
+        border-bottom: 0;
+        position: relative;
+
+        @include u.breakpoint(large) {
+          border-width: u.rem(10);
+        }
+
+        &__img {
+          aspect-ratio: 1216/516;
+          overflow: hidden;
+
+          &__t {
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+        &__heart {
+          background-image: g.$heart-grad;
+          width: u.rem(32);
+          height: u.rem(32);
+          @include u.flexbox(row, center, 0);
+          border-radius: 100%;
+          position: absolute;
+          top: u.rem(-24);
+          left: u.rem(-20);
+
+          @include u.breakpoint(large) {
+            top: u.rem(-32);
+            left: u.rem(-22);
+          }
+
+          animation: heart-box 1.3s ease-in-out infinite alternate;
+
+          @keyframes heart-box {
+            0% {
+              margin-top: -20px;
+              box-shadow: 0 0 0 rgba(229, 42, 63, 0.7);
+            }
+
+            100% {
+              margin-top: 0;
+              box-shadow: 0px 16px 24px rgba(229, 42, 63, 0.7);
+            }
+          }
+
+          &__img {
+            width: u.rem(16);
+            @include u.breakpoint(large) {
+              width: u.rem(32);
+            }
+          }
+
+          @include u.breakpoint(large) {
+            width: u.rem(72);
+            height: u.rem(72);
+            top: u.rem(-35);
+            left: u.rem(-30);
+          }
+        }
+
+        &__tag {
+          position: absolute;
+          top: u.rem(-50);
+          right: 0;
+
+          &__text {
+            @include u.flexbox(column, center, 0);
+            font-family: u.$font-hand;
+            font-size: u.rem(20);
+            transform: rotate(4deg);
+            animation: fade 1s ease-in-out alternate infinite;
+
+            &::selection {
+              background-color: black;
+              color: white;
+            }
+
+            @include u.breakpoint(large) {
+              font-size: u.rem(24);
+            }
+          }
+
+          @include u.breakpoint(large) {
+            top: u.rem(-65);
+            right: u.rem(-90);
+          }
+        }
+      }
+    }
+  }
+
+  .wrapper__scrollbox {
+    position: relative;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    background-color: g.$base-black;
+  }
+
+  &__scrollbox {
+    white-space: nowrap;
+    animation: bannermove 30s linear infinite;
+    padding: u.rem(24) 0;
+    width: max-content;
+    @include u.flexbox(row, center, u.rem(16));
+
+    @include u.breakpoint(large) {
+      padding: u.rem(36) 0;
+      gap: u.rem(24);
+    }
+
+    &__textwraps {
+      color: g.$pink-300;
+      @include u.flexbox(row, center, u.rem(16));
+
+      @include u.breakpoint(large) {
+        gap: u.rem(24);
+      }
+
+      &__text {
+        width: max-content;
+        font-weight: 700;
+
+        @include u.breakpoint(large) {
+          font-size: u.rem(24);
+        }
+
+        &::selection {
+          background-color: white;
+          color: black;
+        }
+      }
+
+      &__img {
+        height: 32px;
+
+        &::selection {
+          background-color: white;
+          color: black;
+        }
+
+        @include u.breakpoint(large) {
+          height: 42px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes bannermove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#id {
+  width: 100%;
+}

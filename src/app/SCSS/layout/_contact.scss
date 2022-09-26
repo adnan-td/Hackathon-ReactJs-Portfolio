@@ -1,0 +1,282 @@
+@use "../utils" as u;
+@use "../globals" as g;
+
+.wrap-circle {
+  width: min(100%, u.rem(1920));
+  overflow: hidden;
+  position: relative;
+
+  &__pink__circle {
+    background-color: g.$rose-500;
+    filter: blur(117px);
+    position: absolute;
+    z-index: -1;
+
+    &--01 {
+      width: 20rem;
+      height: 20rem;
+      bottom: -80px;
+      right: -80px;
+      opacity: 0.1;
+
+      @include u.breakpoint(large) {
+        width: 30rem;
+        height: 30rem;
+        bottom: -100px;
+        right: -100px;
+      }
+    }
+  }
+
+  &__yellow__circle {
+    background-color: #fff173;
+    filter: blur(117px);
+    position: absolute;
+    z-index: -1;
+
+    &--01 {
+      width: 20rem;
+      height: 20rem;
+      top: -80px;
+      left: -80px;
+      opacity: 0.3;
+
+      @include u.breakpoint(large) {
+        width: 30rem;
+        height: 30rem;
+        top: -100px;
+        left: -100px;
+      }
+    }
+
+    &--02 {
+      width: 20rem;
+      height: 20rem;
+      bottom: 0;
+      left: 50%;
+      opacity: 0.3;
+
+      @include u.breakpoint(large) {
+        width: 30rem;
+        height: 30rem;
+      }
+    }
+  }
+}
+
+.contacth {
+  width: min(100%, u.rem(1920));
+  padding: u.rem(64) u.rem(16);
+  @include u.flexbox(column, center, 0);
+  @include u.breakpoint(large) {
+    padding: u.rem(96) u.rem(32);
+    gap: u.rem(64);
+  }
+
+  &__wrapper {
+    width: min(90%, u.rem(1260));
+    @include u.flexbox(column, center, u.rem(48));
+
+    &__heading {
+      font-size: u.rem(36);
+      font-weight: 700;
+      max-width: 20ch;
+      text-align: center;
+      position: relative;
+
+      @include u.breakpoint(medium) {
+        font-size: u.rem(52);
+      }
+
+      @include u.breakpoint(medium) {
+        font-size: u.rem(60);
+      }
+
+      &::selection {
+        background-color: black;
+        color: white;
+      }
+
+      &--mod {
+        max-width: 24ch;
+      }
+
+      &__happy,
+      &__accent {
+        position: absolute;
+
+        &::selection {
+          background-color: g.$orange-dark-400;
+        }
+      }
+
+      &__happy {
+        max-width: u.rem(80);
+        left: -30px;
+        top: -60px;
+        animation: updown-2 1s ease-in-out alternate infinite;
+
+        @include u.breakpoint(large) {
+          max-width: u.rem(100);
+          left: -20px;
+          top: -80px;
+        }
+
+        @include u.breakpoint(large) {
+          left: -20px;
+          top: -80px;
+        }
+      }
+
+      &__accent {
+        max-width: u.rem(80);
+        right: -30px;
+        top: -20px;
+
+        @include u.breakpoint(large) {
+          max-width: u.rem(152);
+          right: -40px;
+          top: -40px;
+        }
+      }
+
+      &__emotion {
+        width: u.rem(50);
+        aspect-ratio: 1/1;
+        margin-bottom: u.rem(-10);
+
+        &::selection {
+          background-color: g.$orange-dark-400;
+        }
+
+        @include u.breakpoint(medium) {
+          width: u.rem(90);
+          aspect-ratio: 1/1;
+          margin-bottom: u.rem(-20);
+        }
+      }
+    }
+
+    &__link {
+      &__button {
+        cursor: pointer;
+        background-color: g.$base-black;
+        color: g.$base-white;
+        padding: u.rem(16) u.rem(24);
+        border-radius: u.rem(8);
+        font-weight: 700;
+        @include u.flexbox(row, center, u.rem(8));
+        font-size: u.rem(18);
+
+        &:hover {
+          background-color: g.$gray-900;
+        }
+
+        &::selection {
+          background-color: black;
+          color: white;
+        }
+
+        &__icon {
+          width: 24px;
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  width: min(100%, u.rem(1920));
+  padding: u.rem(32) u.rem(16);
+  @include u.flexbox(column, center, 0);
+  border-top: 2px solid rgba(0, 0, 0, 0.05);
+
+  @include u.breakpoint(large) {
+    padding: u.rem(64) u.rem(32);
+  }
+
+  &__wrapper {
+    width: min(100%, u.rem(1260));
+    @include u.flexbox(column, center, u.rem(24));
+
+    @include u.breakpoint(large) {
+      @include u.flexbox(row, space-between, 0);
+    }
+
+    &__logo {
+      @include u.flexbox(row, center, u.rem(12));
+
+      img {
+        &::selection {
+          background-color: g.$warning-25;
+          color: white;
+        }
+      }
+
+      &__text {
+        font-family: u.$font-logo;
+        font-size: u.rem(20);
+        color: g.$base-black;
+
+        &::selection {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      align-items: flex-start;
+
+      @include u.breakpoint(large) {
+        @include u.flexbox(row, center, u.rem(40));
+      }
+
+      a:hover {
+        overflow: visible;
+
+        li {
+          animation: text-scroll-effect 0.4s forwards;
+        }
+      }
+
+      &__links {
+        color: g.$gray-500;
+        cursor: pointer;
+        transition: all ease-in-out 100ms;
+
+        &::selection {
+          background-color: black;
+          color: white;
+        }
+
+        &:hover,
+        &:visited {
+          color: g.$gray-700;
+        }
+
+        &:active {
+          color: g.$base-black;
+        }
+
+        &--active {
+          font-weight: 500;
+          color: g.$base-black;
+        }
+      }
+    }
+  }
+}
+
+@keyframes updown-2 {
+  0% {
+    top: u.rem(-70);
+  }
+
+  100% {
+    top: u.rem(-60);
+  }
+}

@@ -1,0 +1,89 @@
+@use "../utils" as u;
+@use "../globals" as g;
+
+.stats {
+  width: min(100%, u.rem(1920));
+  padding: u.rem(64) 0;
+  background-image: url("/Assets/5.Statsection/img-3.webp");
+  background-color: #070c13;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-size: 300%;
+
+  @include u.breakpoint(large) {
+    padding: u.rem(148) 0;
+    background-size: contain;
+  }
+
+  &__wrapper {
+    width: min(100%, u.rem(1260));
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include u.breakpoint(large) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @media only screen and (max-width: 900px) {
+      gap: 4rem;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: u.rem(10);
+      width: 100%;
+      @include u.breakpoint(large) {
+        width: max-content;
+      }
+
+      .stats-mod-wid {
+        min-width: u.rem(184);
+        @include u.flexbox(row, center, u.rem(16));
+
+        @include u.breakpoint(large) {
+          @include u.flexbox(column, center, 0);
+          align-items: flex-start;
+          width: max-content;
+        }
+      }
+
+      &__heading {
+        font-size: u.rem(40);
+        color: #fff9be;
+        font-weight: 400;
+        @include u.breakpoint(medium) {
+          font-size: u.rem(60);
+        }
+
+        &::selection {
+          background-color: white;
+          color: black;
+        }
+      }
+
+      &__para {
+        font-size: u.rem(18);
+        font-weight: 400;
+        color: g.$base-white;
+        text-transform: capitalize;
+
+        &::selection {
+          background-color: white;
+          color: black;
+        }
+
+        @include u.breakpoint(medium) {
+          font-size: u.rem(20);
+        }
+      }
+    }
+  }
+}

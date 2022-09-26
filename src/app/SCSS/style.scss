@@ -1,0 +1,18 @@
+@forward "globals";
+@forward "layout";
+
+.cursor-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 70px;
+  border-radius: 200px;
+  background-color: rgba(0, 0, 0, 0.501);
+  z-index: 20;
+  pointer-events: none;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

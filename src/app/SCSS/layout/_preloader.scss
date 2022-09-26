@@ -1,0 +1,11 @@
+$color: #ff692e;
+$colorRight: darken(#ff692e, 15%);
+$colorLeft: darken(#ff692e, 5%);
+$shadow: rgba(255, 255, 255, 0.05);
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}

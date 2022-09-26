@@ -1,0 +1,204 @@
+@use "../utils" as u;
+@use "../globals" as g;
+
+.work {
+  width: min(100%, u.rem(1920));
+  padding: u.rem(64) u.rem(16);
+  @include u.flexbox(column, center, u.rem(48));
+  @include u.breakpoint(large) {
+    padding: u.rem(96) u.rem(32);
+    gap: u.rem(64);
+  }
+
+  position: relative;
+  overflow: hidden;
+
+  &__yellow__circle {
+    background-color: #fff173;
+    filter: blur(117px);
+    position: absolute;
+    z-index: -1;
+
+    &--01 {
+      width: 20rem;
+      height: 20rem;
+      top: -80px;
+      left: -80px;
+      opacity: 0.3;
+
+      @include u.breakpoint(large) {
+        width: 30rem;
+        height: 30rem;
+        top: -100px;
+        left: -100px;
+      }
+    }
+  }
+
+  &__pink__circle {
+    background-color: g.$rose-500;
+    filter: blur(117px);
+    position: absolute;
+    z-index: -1;
+
+    &--01 {
+      width: 20rem;
+      height: 20rem;
+      top: -80px;
+      right: -80px;
+      opacity: 0.2;
+
+      @include u.breakpoint(large) {
+        width: 30rem;
+        height: 30rem;
+        top: -100px;
+        right: -100px;
+      }
+    }
+
+    &--02 {
+      width: 20rem;
+      height: 20rem;
+      bottom: -80px;
+      right: -80px;
+      opacity: 0.1;
+
+      @include u.breakpoint(large) {
+        width: 30rem;
+        height: 30rem;
+        bottom: -100px;
+        right: -100px;
+      }
+    }
+  }
+
+  &__content {
+    @include u.flexbox(column, center, u.rem(16));
+
+    &__tag {
+      padding: u.rem(4) u.rem(12);
+      border-radius: u.rem(16);
+      background-color: g.$warning-25;
+      color: g.$warning-700;
+      font-weight: 600;
+    }
+
+    &__text {
+      @include u.flexbox(column, center, u.rem(16));
+
+      @include u.breakpoint(large) {
+        gap: u.rem(24);
+      }
+
+      &__heading {
+        font-weight: 700;
+        &::selection {
+          background-color: black;
+          color: white;
+        }
+
+        @include u.breakpoint-down(medium) {
+          font-size: u.rem(30);
+        }
+      }
+
+      &__para {
+        text-align: center;
+        max-width: 55ch;
+        font-size: u.rem(18);
+        color: g.$gray-600;
+        line-height: 1.6;
+
+        &::selection {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+  }
+
+  &__grid {
+    width: min(100%, u.rem(1260));
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 2rem;
+    row-gap: 4rem;
+
+    @include u.breakpoint(medium) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include u.breakpoint(large) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    &__items {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: u.rem(32);
+
+      &__thumbnail {
+        width: 100%;
+        aspect-ratio: 384/280;
+
+        &__img {
+          width: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: u.rem(12);
+
+        &__heading {
+          font-size: u.rem(24);
+          font-weight: 600;
+          color: g.$gray-900;
+
+          &::selection {
+            background-color: black;
+            color: white;
+          }
+        }
+
+        &__para {
+          color: g.$gray-500;
+          font-weight: 400;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+          -webkit-box-orient: vertical;
+          line-height: 24px;
+
+          &::selection {
+            background-color: black;
+            color: white;
+          }
+        }
+      }
+
+      &__button {
+        @include u.flexbox(row, center, u.rem(8));
+
+        &__text {
+          font-weight: 600;
+          color: g.$orange-dark-600;
+
+          &::selection {
+            background-color: black;
+            color: white;
+          }
+          &:hover {
+            color: #e62e05 !important;
+          }
+        }
+      }
+    }
+  }
+}

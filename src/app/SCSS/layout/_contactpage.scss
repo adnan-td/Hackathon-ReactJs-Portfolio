@@ -1,0 +1,269 @@
+@use "../utils" as u;
+@use "../globals" as g;
+
+.contactpage {
+  width: min(100%, u.rem(1920));
+  overflow: hidden;
+  position: relative;
+
+  .contactf {
+    width: 100%;
+    padding: u.rem(64) 1rem;
+    @include u.flexbox(column, center, 0);
+    position: relative;
+
+    @include u.breakpoint-down(medium) {
+      width: 100vw;
+    }
+
+    @include u.breakpoint(large) {
+      @include u.flexbox(column, center, 0);
+      padding: u.rem(96) u.rem(64);
+    }
+
+    .yellow__circle {
+      background-color: #fff173;
+      filter: blur(117px);
+      position: absolute;
+      z-index: -1;
+
+      &--01 {
+        width: 20rem;
+        height: 20rem;
+        bottom: u.rem(60);
+        left: u.rem(-100);
+
+        opacity: 0.7;
+
+        @include u.breakpoint(large) {
+          width: 20rem;
+          height: 20rem;
+          bottom: u.rem(379);
+          left: 17%;
+        }
+      }
+
+      &--02 {
+        width: 20rem;
+        height: 20rem;
+        right: 0px;
+        bottom: u.rem(9);
+        opacity: 0.6;
+
+        @include u.breakpoint(large) {
+          width: 20rem;
+          height: 20rem;
+          right: 0px;
+          bottom: u.rem(299);
+          opacity: 0.6;
+        }
+      }
+    }
+
+    .blue__circle {
+      background-color: #73abff;
+      filter: blur(117px);
+      position: absolute;
+      z-index: -1;
+
+      &--01 {
+        width: 20rem;
+        height: 20rem;
+        bottom: 0;
+        left: u.rem(-100);
+        opacity: 0.6;
+
+        @include u.breakpoint(large) {
+          width: 20rem;
+          height: 20rem;
+          bottom: 0;
+          left: 5%;
+        }
+      }
+
+      &--02 {
+        width: 20rem;
+        height: 20rem;
+        right: 0px;
+        bottom: u.rem(9);
+        opacity: 0;
+
+        @include u.breakpoint(large) {
+          width: 20rem;
+          height: 20rem;
+          right: 0px;
+          bottom: u.rem(100);
+          opacity: 0.4;
+        }
+      }
+    }
+
+    &__wrapper {
+      width: min(100%, u.rem(1260));
+      @include u.flexbox(column, center, u.rem(40));
+      align-items: flex-start;
+
+      @include u.breakpoint(large) {
+        gap: u.rem(60);
+      }
+
+      &__heading {
+        @include u.breakpoint(large) {
+          font-size: 3rem;
+
+          &::selection {
+            background-color: g.$base-black;
+            color: g.$base-white;
+          }
+        }
+      }
+
+      &__div {
+        width: 100%;
+        @include u.flexbox(column, center, u.rem(40));
+        align-items: flex-start;
+
+        @include u.breakpoint(large) {
+          @include u.flexbox(row, center, u.rem(64));
+          align-items: flex-start;
+        }
+
+        &__left {
+          background-color: g.$base-white;
+          width: 100%;
+          padding: u.rem(40) u.rem(16);
+          @include u.flexbox(column, center, u.rem(40));
+          align-items: flex-start;
+          box-shadow: 0px 4px 24px 0px rgb(0 0 0 / 10%);
+
+          @include u.breakpoint(large) {
+            padding: u.rem(54) u.rem(40);
+            flex: 70%;
+          }
+
+          &__form {
+            width: 100%;
+            @include u.flexbox(column, center, u.rem(20));
+
+            form {
+              width: 100%;
+            }
+
+            &__row {
+              width: 100%;
+              @include u.flexbox(column, center, u.rem(20));
+
+              @include u.breakpoint(medium) {
+                @include u.flexbox(row, center, u.rem(20));
+              }
+            }
+          }
+        }
+
+        &__right {
+          background-color: g.$base-white;
+          width: min(100%, u.rem(387));
+          padding: u.rem(40);
+          @include u.flexbox(column, center, u.rem(60));
+          align-items: flex-start;
+          box-shadow: 0px 4px 24px 0px rgb(0 0 0 / 10%);
+
+          @include u.breakpoint(large) {
+            flex: 30%;
+          }
+
+          &__top {
+            @include u.flexbox(column, center, u.rem(12));
+            align-items: flex-start;
+
+            &__img {
+              width: u.rem(32);
+
+              &::selection {
+                background-color: g.$orange-dark-400;
+              }
+            }
+
+            &__para {
+              font-size: u.rem(16);
+              font-weight: 600;
+              color: g.$gray-900;
+              line-height: 1.5;
+
+              &::selection {
+                background-color: g.$base-black;
+                color: g.$base-white;
+              }
+            }
+          }
+
+          &__bottom {
+            @include u.flexbox(column, center, u.rem(20));
+            align-items: flex-start;
+
+            &__content {
+              @include u.flexbox(column, center, u.rem(4));
+              align-items: flex-start;
+
+              &__label {
+                font-weight: 400;
+                color: g.$gray-500;
+
+                &::selection {
+                  background-color: g.$base-black;
+                  color: g.$base-white;
+                }
+              }
+
+              &__main {
+                font-weight: 600;
+                color: g.$gray-900;
+                transition: all ease-in-out 100ms;
+
+                &:hover {
+                  color: g.$orange-dark-400;
+                }
+
+                &::selection {
+                  background-color: g.$base-black;
+                  color: g.$base-white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.form-input {
+  width: 100%;
+  padding: u.rem(16) u.rem(22);
+  border-radius: u.rem(8);
+  border: 2.5px solid #dfdfdf;
+  background-color: g.$base-white;
+  transition: border ease-in-out 100ms;
+  font-weight: 600;
+  font-size: u.rem(16);
+
+  &::placeholder {
+    color: g.$gray-500;
+    font-weight: 600;
+    font-size: u.rem(16);
+  }
+
+  &::selection {
+    background-color: g.$base-black;
+    color: g.$base-white;
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    border-color: g.$gray-600;
+    border-width: u.rem(3);
+  }
+
+  resize: none;
+}

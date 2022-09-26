@@ -1,0 +1,190 @@
+@use "../utils" as u;
+@use "../globals" as g;
+
+.nav {
+  @include u.flexbox(row, space-between, 0);
+  padding: 1rem;
+  border-bottom: 1px solid g.$gray-100;
+  background-color: g.$base-white;
+  width: min(100%, 1260px);
+
+  @include u.breakpoint(large) {
+    border-bottom: none;
+    padding: u.rem(32) 1rem 0 1rem;
+    background-color: transparent;
+  }
+
+  &__desktop {
+    display: none;
+    @include u.breakpoint(large) {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__logo {
+      @include u.flexbox(row, center, u.rem(12));
+
+      &::selection {
+        background-color: g.$warning-25;
+        color: white;
+      }
+
+      &__text {
+        font-family: u.$font-logo;
+        font-size: u.rem(20);
+        color: g.$base-black;
+
+        &::selection {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+
+    &__item {
+      @include u.breakpoint(large) {
+        @include u.flexbox(row, center, u.rem(40));
+      }
+
+      a:hover {
+        overflow: visible;
+
+        li {
+          animation: text-scroll-effect 0.4s forwards;
+        }
+      }
+
+      &__links {
+        color: g.$gray-500;
+        cursor: pointer;
+        transition: all ease-in-out 100ms;
+
+        &::selection {
+          background-color: black;
+          color: white;
+        }
+
+        &:hover,
+        &:visited {
+          color: g.$gray-700;
+        }
+
+        &:active {
+          color: g.$base-black;
+        }
+
+        &--active {
+          font-weight: 500;
+          color: g.$base-black;
+        }
+      }
+    }
+
+    &__contact {
+      @include u.breakpoint(large) {
+        display: block;
+      }
+
+      &__button {
+        padding: u.rem(12) u.rem(22);
+        background-color: g.$base-white;
+        border-radius: u.rem(5);
+        cursor: pointer;
+        transition: all ease-in-out 0.1s;
+        @include u.flexbox(row, center, u.rem(5));
+        span {
+          font-weight: 700;
+
+          &::selection {
+            background-color: black;
+            color: white;
+          }
+        }
+
+        &:hover,
+        &:focus {
+          background-color: g.$gray-100;
+        }
+
+        img {
+          &::selection {
+            background-color: g.$warning-25;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+
+  &__mobile {
+    width: 100%;
+    @include u.flexbox(column, center, 1rem);
+    @include u.breakpoint(large) {
+      display: none;
+    }
+
+    &__wrapper {
+      @include u.flexbox(row, space-between, 0);
+      width: 100%;
+    }
+
+    &__absolute {
+      @include u.flexbox(column, center, 1rem);
+      width: 100%;
+
+      &__item {
+        @include u.flexbox(column, center, 1rem);
+        width: 100%;
+
+        &__anchor {
+          width: 100%;
+          text-align: center;
+          border: u.rem(2) solid rgb(0 0 0 / 5%);
+          padding: 0.75rem;
+          border-radius: u.rem(4);
+        }
+      }
+
+      &__contact {
+        width: 100%;
+        &__button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.active-nav-border {
+  height: 2px;
+  background-color: g.$base-black;
+  width: 0%;
+  margin: 0 auto;
+  animation: forwards 1s centre-to-edge 0.6s;
+}
+
+@keyframes text-scroll-effect {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(0, -7px) scale(1.1);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1.1);
+  }
+}
+
+@keyframes centre-to-edge {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 70%;
+  }
+}

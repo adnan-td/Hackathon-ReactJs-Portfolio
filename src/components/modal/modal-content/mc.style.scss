@@ -1,0 +1,135 @@
+$base-white: white;
+$base-black: #000;
+$main-theme-light: #2c2c2c;
+
+.modal-cover {
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+
+  .Script-Modal {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    z-index: 12;
+    max-width: 500px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 12px;
+    padding: 1.5rem;
+    gap: 2rem;
+    flex-direction: column;
+    position: relative;
+    margin: 0 1rem;
+
+    .script-fix {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 3.5rem;
+      }
+    }
+
+    .close-div {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      padding: 0.625rem;
+      top: 1rem;
+      right: 1rem;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        background: #e1e5e9;
+      }
+
+      &:focus {
+        background: #cfd2d7;
+      }
+    }
+
+    .header-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+
+      .h-img-wrap {
+        width: 100%;
+        aspect-ratio: 7/4;
+        overflow: hidden;
+        border-radius: 0.5rem;
+
+        .welcome-img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .h-content-div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        p {
+          text-align: center;
+        }
+
+        .h-content-1 {
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: #101828;
+        }
+
+        .h-content-2 {
+          padding: 0 1rem;
+          color: #667085;
+          font-weight: 400;
+          line-height: 1.7;
+        }
+      }
+    }
+
+    .bottom-button {
+      display: flex;
+      gap: 0.75rem;
+      width: 100%;
+
+      button {
+        width: 100%;
+        padding: 0.625rem 1.125rem;
+        margin: 0 !important;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        padding: 0.9rem 0;
+        cursor: pointer;
+      }
+
+      .next-button {
+        background: $base-black;
+        color: $base-white;
+
+        &:active,
+        &:hover {
+          background-color: $main-theme-light;
+          color: $base-white !important;
+        }
+      }
+    }
+  }
+}
